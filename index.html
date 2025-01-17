@@ -13,13 +13,36 @@
       color: #000;
       line-height: 1.6;
     }
-   .logo {
-  position: absolute;
-  top: 10px; /* Abstand von oben */ 
-  left: 10px; /* Abstand von links */
-  width: 40%; /* Passe die Breite des Logos an */
-  height: auto; /* Behalte das Seitenverhältnis bei */
+  /* Standard: Desktop-Logo sichtbar, Mobile-Logo versteckt */
+.logo-mobile {
+  display: none; /* Verberge das mobile Logo standardmäßig */
 }
+
+.logo-desktop {
+  display: block; /* Desktop-Logo ist sichtbar */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 150px; /* Desktop-Logo Größe */
+  height: auto; /* Seitenverhältnis bleibt erhalten */
+}
+
+/* Für kleine Bildschirme: Mobile-Logo sichtbar, Desktop-Logo versteckt */
+@media (max-width: 768px) {
+  .logo-desktop {
+    display: none; /* Verberge das Desktop-Logo */
+  }
+
+  .logo-mobile {
+    display: block; /* Zeige das mobile Logo */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px; /* Mobile-Logo Größe */
+    height: auto; /* Seitenverhältnis bleibt erhalten */
+  }
+}
+
     header {
       position: relative;
       background-color: #ffffff;
@@ -109,11 +132,15 @@
   </style>
 </head>
 <body>
-  <header>
+ <header>
   <a href="https://www.mkg-hamburg.de/" target="_blank">
-    <img src="Logo.png" alt="MK&G Museum Logo" class="logo">
+    <!-- Logo für große Bildschirme -->
+    <img src="Logo-desktop" alt="MK&G Museum Logo Desktop" class="logo logo-desktop">
+    <!-- Logo für kleine Bildschirme -->
+    <img src="Logo-mobile" alt="MK&G Museum Logo Mobile" class="logo logo-mobile">
   </a>
 </header>
+
 
 
   <div class="container">
